@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
-
 public class NameInverter {
+    public final String WHITESPACE = "\\s+";
+    public final String HONORIFIC = "[Mm]rs?\\.";
+
     public String invert(String name) {
         List<String> names = splitNames(name);
         if(names.size() == 1) {
@@ -11,8 +13,8 @@ public class NameInverter {
     }
 
     private List<String> splitNames(String name) {
-        List<String> names = new ArrayList<>(List.of(name.trim().split("\\s+")));
-        if (names.get(0).equals("Mr.")) {
+        List<String> names = new ArrayList<>(List.of(name.trim().split(WHITESPACE)));
+        if (names.get(0).matches(HONORIFIC)) {
             names.remove(0);
         }
         return names;
