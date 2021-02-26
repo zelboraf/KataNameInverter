@@ -23,4 +23,10 @@ public class NameInverterTest {
         String result = nameInverter.invert("");
         assertThat(result).isEqualTo("");
     }
+
+    @Test
+    void shouldReturnEmptyStringWhenWhitespacesProvided() {
+        String result = nameInverter.invert("   ");
+        assertThat(result).isEqualTo("");
+    }
 }
