@@ -10,7 +10,11 @@ public class NameInverter {
         return String.format("%s, %s", names.get(1), names.get(0));
     }
 
-    private ArrayList<String> splitNames(String name) {
-        return new ArrayList<>(List.of(name.trim().split("\\s+")));
+    private List<String> splitNames(String name) {
+        List<String> names = new ArrayList<>(List.of(name.trim().split("\\s+")));
+        if (names.get(0).equals("Mr.")) {
+            names.remove(0);
+        }
+        return names;
     }
 }
