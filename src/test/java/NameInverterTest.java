@@ -32,7 +32,15 @@ public class NameInverterTest {
 
     @Test
     void shouldReturnNameWhenOnlyNameProvided() {
-        String result = nameInverter.invert("Jan");
+        String result = nameInverter.invert("Jan ");
         assertThat(result).isEqualTo("Jan");
     }
+
+    @Test
+    void shouldReturnInvertedLastnameAndFirstname() {
+        String result = nameInverter.invert("Jan Kowalski ");
+        assertThat(result).isEqualTo("Kowalski, Jan");
+    }
 }
+
+
