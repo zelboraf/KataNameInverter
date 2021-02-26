@@ -29,4 +29,10 @@ public class NameInverterTest {
         String result = nameInverter.invert("   ");
         assertThat(result).isEqualTo("");
     }
+
+    @Test
+    void shouldReturnNameWhenOnlyNameProvided() {
+        String result = nameInverter.invert("Jan");
+        assertThat(result).isEqualTo("Jan");
+    }
 }
