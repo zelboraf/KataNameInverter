@@ -11,11 +11,17 @@ public class NameInverter {
     }
 
     private String invertNames(List<String> names) {
-        return switch (names.size()) {
-            case 1 -> names.get(0);
-            case 2 -> String.format("%s, %s", names.get(1), names.get(0));
-            default -> String.format("%s, %s %s", names.get(1), names.get(0), names.get(2));
-        };
+        String firstName = names.get(0);
+        if (names.size() == 1) {
+            return firstName;
+        }
+        String lastName = names.get(1);
+        StringBuilder titles = new StringBuilder();
+        while (names.size() > 2) {
+            titles.append(names.get(2)).append(" ");
+            names.remove(2);
+        }
+        return String.format("%s, %s %s", lastName, firstName, titles).trim();
     }
 
     private List<String> splitNamesAndRemoveHonorific(String name) {
